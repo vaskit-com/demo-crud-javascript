@@ -1,7 +1,3 @@
-# demos
-DEMO applications for CRUD operations using VASKIT.com
-
-
 # VASKIT
 VASKIT is your private API for managing: USERS, TABLES, RECORDS, CHAT, PUSH, VIDEO CONFERENCE and CRON jobs! 
 
