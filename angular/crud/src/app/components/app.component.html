@@ -1,0 +1,144 @@
+<div class="container mt-4">
+
+    <!--
+        Intro card
+    -->
+    <div class="card border-0 shadow">
+        <div class="card-header">
+            <h5>CRUD Demo App - Vaskit</h5>
+        </div>
+        <div class="card-body">
+
+            <p class="card-text">
+                Welcome! This demo app shows how you can use VASKIT to
+                create, remove, update and delete records.
+            </p>
+
+            <div class="card-text mt-4">
+                <h5>Things you will need:</h5>
+            </div>
+
+            <ul class="list-group mt-4">
+                <li class="list-group-item">
+                    1) A VASKIT account. Go <a href="https://vaskit.com">here</a> to get one.
+                </li>
+                <li class="list-group-item">
+                    2) Your DEVELOPER KEY. You get this from your <a href="https://vaskit.com/dashboard">Dashboard</a>
+                </li>
+                <li class="list-group-item">
+                    You can find this code in our <a href="">repository</a>
+                </li>
+                <li class="list-group-item">
+                    This is a very simple example. Click <a href="/doc">here</a>
+                    and learn about users and records security to make them private
+                    or accessible to certain users only.
+                    Learn how to send <b>PUSH</b> messages and use <b>SOCKET</b> communication.
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!--
+        CRUD Card
+    -->
+    <div class="card border-0 shadow mt-4 mb-4">
+        <div class="card-header">
+            <h5>List of Employees</h5>
+        </div>
+        <div class="card-body">
+
+            <p class="card-text">
+                For this demo we will run CRUD operations for a group of employees.
+            </p>
+
+            <table class="table border">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Position</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="employeesList">
+                    <tr *ngFor="let item of arrRecords">
+                        <td>{{ item.data.name }}</td>
+                        <td>{{ item.data.age }}</td>
+                        <td>{{ item.data.position }}</td>
+                        <td>
+                            <button class="btn btn-danger mr-2" (click)="deleteRecord(item._id)">
+                                Delete
+                            </button>
+                            <button class="btn btn-primary" (click)="getRecordById(item._id)">
+                                Edit
+                            </button>                        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!--
+                Add new record
+            -->
+            <div class="mt-4 mb-4" align="center" id="newRecordDiv" style="display:none">
+                <table class="table table-borderless" style="max-width:400px">
+                    
+                    <tr id="recordId" *ngIf="recordToEdit">
+                        <td>Record ID:</td>
+                        <td><input type="text" id="id" disabled class="form-control" 
+                            [value]="recordToEdit._id" /></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" id="name" class="form-control" 
+                            [value]="recordToEdit ? recordToEdit.data.name : ''" /></td>
+                    </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td><input type="number" id="age" class="form-control" 
+                            [value]="recordToEdit ? recordToEdit.data.age : ''" /></td>
+                    </tr>
+                    <tr>
+                        <td>Position:</td>
+                        <td><input type="text" id="position" class="form-control" 
+                            [value]="recordToEdit ? recordToEdit.data.position : ''" /></td>
+                    </tr>
+                </table>
+                <table class="table table-borderless" style="max-width:400px">
+                    <tr>
+                        <td>
+                            <div id="addNewInfo" class="text-info">
+                            </div>
+                        </td>
+                        <td align="right" width="230">
+                            <button class="btn btn-secondary mr-2" (click)="cancelAdd()">
+                                Cancel
+                            </button>
+                            <button class="btn btn-primary" (click)="saveChanges()">
+                                Save
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <div class="card-footer text-center">
+            <button class="btn btn-primary" (click)="showAddNew()">
+                Add New
+            </button>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body text-center">
+            Clone this code from <a href="">Github</a>
+        </div>
+    </div>
+
+    <div style="height:5rem"></div>
+
+</div>
