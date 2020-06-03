@@ -145,7 +145,7 @@ function userSelectedFromList(userId) {
      * Get all messages sent and received for this user
      */
     const body = {
-        table: 'chat-messages',
+        table: TABLE_CHAT,
         filters: [{
             key: "$or",
             value: [{
@@ -289,7 +289,7 @@ function storeMessage(toUserId, message) {
          * This is the table we will use to save our messages.
          * Manage your tables from: https://vaskit.com/dashboard
          */
-        table: 'chat-messages',
+        table: TABLE_CHAT,
 
         /**
          * This is the data to store
