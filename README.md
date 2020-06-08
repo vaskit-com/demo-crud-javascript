@@ -11,3 +11,7 @@ Clone or download some demos from here. You can read a complete documentation wi
 Start now creating your account! www.vaskit.com
 
 
+# IMPORTANT
+For these examples you need to create tables once you get your own user. Send us a message asking for which table you need to create if you can't find it for each DEMO. 
+
+
