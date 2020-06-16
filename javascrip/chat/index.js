@@ -321,6 +321,34 @@ function storeMessage(toUserId, message) {
 }
 
 
+function createUser() {
+    const name = $('#newName');
+    const surname = $('#newSurname');
+    const email = $('#newEmail');
+    const password = $('#newPassword');
+
+    if (!name.val() || !surname.val() || !email.val() || !password.val()) {
+        alert('Please fill all the fields');
+        return;
+    }
+
+    const body = {
+        name: name.val(),
+        surname: surname.val(),
+        email: email.val(),
+        password: password.val()
+    };
+
+    sendRequest('post', '/user/api', body, (success, response) => {
+        if (success) {
+            alert('User created!');
+            name.val('');
+            surname.val('');
+            email.val('');
+            password.val('');
+        }
+    })
+}
 
 /**
  * User clicks on the LOGIN button
